@@ -1,33 +1,44 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard',[DashboardController::class, 'services'], function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->group(function () {
-        Route::get('/admin', function () {
-            return "Welcome Admin";
-        });
+        Route::get('/AddServices', function () {
+            // Worker Link 1
+        })->name('add.services');
+        Route::get('/UpdateServices', function () {
+            // Worker Link 1
+        })->name('update.services');
+        Route::get('/ViewServices', function () {
+            // Worker Link 1
+        })->name('view.services');
+        Route::get('/DeleteServices', function () {
+            // Worker Link 1
+        })->name('delete.services');
+    
     });
     
     Route::middleware(['role:worker'])->group(function () {
-        Route::get('/worker', function () {
-            return "Welcome worker";
-        });
+        Route::get('/ViewServices', function () {
+            // Worker Link 1
+        })->name('view.services');
     });
     
     Route::middleware(['role:client'])->group(function () {
-        Route::get('/client', function () {
-            return "Welcome client";
-        });
+        Route::get('/ViewServices', function () {
+            // Worker Link 1
+        })->name('view.services');
     });
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

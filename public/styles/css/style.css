@@ -64,6 +64,10 @@ Version      : 1.0
 	url(../fonts/MaterialIcons-Regular.woff) format('woff'),
 	url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
+.error{
+	color: red;
+	height: 20px;
+}
 .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
