@@ -64,10 +64,7 @@ Version      : 1.0
 	url(../fonts/MaterialIcons-Regular.woff) format('woff'),
 	url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
-.error{
-	color: red;
-	height: 20px;
-}
+
 .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
@@ -2247,13 +2244,15 @@ html.menu-opened body {
 -----------------------*/
 
 .section-search { 
-	background: #f9f9f9 url(../img/search-bg.png) no-repeat bottom center;
-    min-height: 450px;
-    background-size: 100% auto;
+	background: #f9f9f9 url(../img/banner.jpg)  no-repeat bottom center;
+	
+    min-height: 520px;
+    background-size:70% 50%;
     position: relative;
     background-blend-mode: Darken;
     padding: 80px 0;
 }
+
 .section-header {
     margin-bottom: 60px;
 }

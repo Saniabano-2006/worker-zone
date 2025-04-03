@@ -41,7 +41,7 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="index-2.html" class="navbar-brand logo">
+						<a href="{{route('home')}}" class="navbar-brand logo">
 							<img src="{{asset('styles/img/logo.png')}}" class="img-fluid" alt="Logo">
 						</a>
 					</div>
@@ -49,7 +49,7 @@
 						
 						<ul class="main-nav">
 							<li class="active">
-								<a href="index-2.html">Home</a>
+								<a href="{{route('home')}}">Home</a>
 							</li>
 						</ul>		 
 					</div>		 

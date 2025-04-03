@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('service_name');
             $table->string('service_detail');
             $table->string('service_img');
+            $table->timestamps();
 
 
         });
@@ -29,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('services');
     }
 };
+
