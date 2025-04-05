@@ -92,26 +92,9 @@
 									<img src="{{asset('styles/img/logo.png')}}" class="img-fluid" alt="logo">
 								</div>
 								<div class="footer-about-content">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<div class="social-icon">
-										<ul>
-											<li>
-												<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-											</li>
-											<li>
-												<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-											</li>
-											<li>
-												<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-											</li>
-											<li>
-												<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-											</li>
-											<li>
-												<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-											</li>
-										</ul>
-									</div>
+									<p>At Worker Zone, our mission is to bridge the gap between local workers and clients, making it easier for people to find the help they need. We strive to provide a user-friendly platform that benefits both workers and clients, promoting a sense of community and cooperation.
+									</p>
+									
 								</div>
 							</div>
 							<!-- /Footer Widget -->
@@ -122,9 +105,8 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For client</h2>
 									<ul>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="{{route('login')}}"><i class="fas fa-angle-double-right"></i> Login</a></li>
+										<li><a href="{{route('register')}}"><i class="fas fa-angle-double-right"></i> Register</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->				
@@ -147,7 +129,28 @@
 								</div>
 							</div>
 							<!-- /Footer Widget -->
-							
+							<div class="col-lg-3 col-md-6">
+								<h2 class="footer-title">Social links</h2>
+								<div class="social-icon">
+									<ul>
+										<li>
+											<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+										</li>
+										<li>
+											<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+										</li>
+										<li>
+											<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+										</li>
+										<li>
+											<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+										</li>
+										<li>
+											<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+										</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 						
 					</div>
@@ -169,7 +172,7 @@
 								<div class="copyright-menu text-center text-light mx-auto">
 							
 
-										Made By Sania and Mahnoor
+										Developed By: Sania and Mahnoor
 									
 								</div>
 								<!-- /Copyright Menu -->

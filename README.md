@@ -1,66 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Worker Zone
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Worker Zone is a full-stack website built using Laravel 12, providing a platform for local workers to connect with clients.
 
-## About Laravel
+## Project Overview
+Worker Zone aims to bridge the gap between local workers and clients, making it easier for individuals to find reliable and skilled workers for various tasks.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation
+To install Worker Zone, follow these steps:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone the repository from GitHub.
+2. Run `composer install` to install dependencies.
+3. Run `php artisan migrate` to migrate the database schema.
+4. Configure the application settings in the `.env` file.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Roles and Permissions
+Worker Zone has three main roles:
 
-## Learning Laravel
+1. **Admin**: Can add, delete, update, and view services and workers.
+2. **Worker**: Can view services and workers.
+3. **Client**: Can view services and workers.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Packages Used
+Worker Zone utilizes the following packages:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Breeze**: For authentication and authorization.
+2. **Spatie**: For permission management.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Database
+Worker Zone uses MySQL as its database management system.
 
-## Laravel Sponsors
+## Credentials
+Here are the default credentials for testing purposes:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+* **Admin**:
+  + Email: admin@example.com
+  + Password: 1234
+* **Worker**:
+  + Email: worker@example.com
+  + Password: 1234
+* **Client**:
+  + Email: client@example.com
+  + Password: 1234
 
 ## Contributing
+To contribute to Worker Zone, follow these steps:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Fork the repository from GitHub.
+2. Create a new branch for your changes.
+3. Make your changes and commit them to your branch.
+4. Submit a pull request to the main repository.
+   
+## screenshots
+![image alt](https://github.com/Saniabano-2006/worker-zone/blob/a07ec39c9811c8160f38c3d75cba7984754a636b/secreenshots/Screenshot%201.png)
+![image alt](https://github.com/Saniabano-2006/worker-zone/blob/861a4357bd76da534c12c3d062c4ccc761438334/secreenshots/Screenshot2.png)
+![image alt](https://github.com/Saniabano-2006/worker-zone/blob/861a4357bd76da534c12c3d062c4ccc761438334/secreenshots/Screenshot3.png)
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
