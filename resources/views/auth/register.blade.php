@@ -24,49 +24,42 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group form-focus">
-                                    <input type="text" id="name" name="name" class="form-control floating">
+                                    <input type="text" id="name" name="name" class="form-control floating @error('email') is-invalid @enderror">
                                     <label for="name" class="focus-label">Name</label>
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="email" id="email" name="email" class="form-control floating">
+                                    <input type="email" id="email" name="email" class="form-control floating @error('email') is-invalid @enderror">
                                     <label for="email" class="focus-label">Email</label>
                                    
-                                    <div class="error">
-                                        
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                    </div> 
+                                    @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                     
 
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" id="password" name="password" class="form-control floating">
+                                    <input type="password" id="password" placeholder="password must have 8 characters" name="password" class="form-control floating @error('email') is-invalid @enderror">
                                     <label for="password" class="focus-label">Create Password</label>
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
 
                                 </div>
-                                <div class="form-group form-focus">
-                                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control floating">
-                                    <label for="password_confirmation" class="focus-label">Confirm Password</label>
-                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-
-                                </div>
+                           
                                 <div class="text-right">
                                     <a class="forgot-link" href="{{ route('login') }}">Already have an account?</a>
                                 </div>
                                 <input class="btn btn-primary btn-block btn-lg login-btn" type="submit" value="Signup">
-                                <div class="login-or">
-                                    <span class="or-line"></span>
-                                    <span class="span-or">or</span>
-                                </div>
-                                <div class="row form-row social-login">
-                                    <div class="col-6">
-                                        <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
-                                    </div>
-                                </div>
+                               
                             </form>
                             <!-- /Register Form -->
                             

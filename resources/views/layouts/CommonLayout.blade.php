@@ -169,7 +169,7 @@
 								<div class="copyright-menu text-center text-light mx-auto">
 							
 
-										© 2025/All Rights Reserved
+										Made By Sania and Mahnoor
 									
 								</div>
 								<!-- /Copyright Menu -->

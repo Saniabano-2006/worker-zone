@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Services;
+use App\Models\workers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -20,6 +21,7 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -37,6 +39,8 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -55,6 +59,8 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -73,6 +79,8 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -91,6 +99,8 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -108,6 +118,8 @@ class DashboardController extends Controller
             $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
             $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+            $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
         } elseif ($role->name == 'worker') {
             $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
         } elseif ($role->name == 'client') {
@@ -192,6 +204,63 @@ public function destroy($id)
     return redirect(route('delete.services'))->with('success',"service deleted successfully.");
 
 }
+public function addWorkers(Request $request)
+{
+    $user = $request->user();
+    $role = $user->roles()->first();
+    $links = [];
+    if ($role->name == 'admin') {
+        $links[] = ['name' => 'Add Services','icon'=>'fe fe-plus', 'url' => route('add.services')];
+        $links[] = ['name' => 'Update Services','icon'=>'fe fe-edit', 'url' => route('update.services')];
+        $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
+        $links[] = ['name' => 'Delete Services','icon'=>'fe fe-trash', 'url' => route('delete.services')];
+        $links[] = ['name' => 'Add Workers','icon'=>'fe fe-plus', 'url' => route('add.workers')];
+
+    } elseif ($role->name == 'worker') {
+        $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
+    } elseif ($role->name == 'client') {
+        $links[] = ['name' => 'View Services','icon'=>'fe fe-eye', 'url' => route('view.services')];
+    }
+    
+    return view('workers.Addworkers', compact('links'));
+}
+public function storeworker(Request $request)
+{
+    $validator = Validator::make($request->all(),[
+        'name' => 'required',
+    
+        'pno' => 'required',
+        'address' => 'required',
+        'service' => 'required',
+        'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+
+  
+
+    // Create a new worker
+    $worker = new workers();
+        // Assig the validated data to the model instance
+        $worker->name = $request->input('name');
+        $worker->address= $request->input('address');
+        $worker->phone_no= $request->input('pno');
+        $worker->service= $request->input('service');
+        $image = $request->file('image');
+        $ext = $image->getClientOriginalExtension();
+        $imageName = time().'.'.$ext;
+        $image->move(public_path('styles/img/workers'),$imageName);
+        $worker->profile_pic =$imageName;
+
+        // Save the model instance to the database
+        $worker->save();
+
+    
+
+    return redirect()->route('dashboard')->with('success', 'Worker added successfully!');
+}
+
 }
 
 

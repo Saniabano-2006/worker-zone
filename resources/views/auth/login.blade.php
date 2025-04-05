@@ -22,31 +22,29 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group form-focus">
-                    <input type="email" id="email" name="email" class="form-control floating" required>
+                    <input type="email" id="email" name="email" class="form-control floating @error('email') is-invalid @enderror">
                     <label for="email" class="focus-label">Email</label>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+                
                 <div class="form-group form-focus">
-                    <input type="password" id="password" name="password" class="form-control floating">
+                    <input type="password" id="password" name="password" class="form-control floating @error('email') is-invalid @enderror">
                     <label  for="password" class="focus-label">Password</label>
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="text-right">
                     <a class="forgot-link"  href="{{ route('password.request') }}">Forgot Password ?</a>
                 </div>
                 <input type="submit" class="btn btn-primary btn-block btn-lg login-btn" value="Log in">
-                <div class="login-or">
-                    <span class="or-line"></span>
-                    <span class="span-or">or</span>
-                </div>
-                <div class="row form-row social-login">
-                    <div class="col-6">
-                        <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
-                    </div>
-                    <div class="col-6">
-                        <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
-                    </div>
-                </div>
+                
                 <div class="text-center dont-have">Don’t have an account? <a href="{{ route('register') }}">Register</a></div>
             </form>
         </div>

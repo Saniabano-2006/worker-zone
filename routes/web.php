@@ -2,14 +2,19 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\searchController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Services;
+use App\Models\workers;
 
 
 Route::get('/', function () {
     $services = services::take(6)->get();
-    return view('home',compact('services'));
+    $workers = workers::take(6)->get();
+    return view('home',compact('services'),compact('workers'));
 })->name('home');
+Route::get('/search', [searchController::class, 'search']);
+
 
 Route::get('/dashboard',[DashboardController::class, 'viewDashboard'], function () {
     return view('dashboard');
@@ -18,11 +23,14 @@ Route::get('/dashboard',[DashboardController::class, 'viewDashboard'], function 
 Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->group(function () {
         
-        Route::get('AddServices',[DashboardController::class, 'addServices'])->name('add.services');
+        Route::get('/AddServices',[DashboardController::class, 'addServices'])->name('add.services');
         Route::get('/UpdateServices',[DashboardController::class, 'updateServices'])->name('update.services');
         Route::get('/ViewServices',[DashboardController::class, 'viewServices'])->name('view.services');
         Route::get('/DeleteServices',[DashboardController::class, 'deleteServices'])->name('delete.services');
         Route::post('/dashboard', [DashboardController::class, 'store'])->name('services.store');
+        Route::get('/Addworkers',[DashboardController::class, 'addWorkers'])->name('add.workers');
+        Route::post('', [DashboardController::class, 'storeworker'])->name('worker.stored');
+
         Route::get('/services/{service}/edit', [DashboardController::class, 'edit'])->name('services.edit');
         Route::put('/services/{service}', [DashboardController::class, 'storeupdate'])->name('services.storeupdate');
         Route::delete('/services/{service}', [DashboardController::class, 'destroy'])->name('services.destroy');
